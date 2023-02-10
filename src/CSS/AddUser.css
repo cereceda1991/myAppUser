@@ -1,0 +1,52 @@
+.container__Add {
+    display: grid;
+    background-color: #0008;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    z-index: 4;
+    justify-content: center;
+    align-items: center;
+}
+
+.card__add-msg {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem 2rem 3rem 2rem;
+    background-color: white;
+    border-radius: .2rem;
+}
+
+.buttom__agree {
+    margin-top: 1rem;
+    font-family: inherit;
+    background-color: #555A88;
+    border: none;
+    height: 2rem;
+    color: white
+}
+
+.buttom__agree:hover {
+    cursor: pointer;
+    background-color: blueviolet;
+}
+
+.close__add-msg {
+    text-align: end;
+    cursor: pointer;
+}
+
+.close__add-msg button {
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1.9rem;
+    color: black;
+    border: none
+}
+
+.check__add-msg {
+    color: #82CD47;
+    font-size: 4.5rem;
+    text-align: center;
+    text-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}

@@ -1,0 +1,19 @@
+.card__delete-user {
+    display: flex;
+    background-color: #0004;
+    min-width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 2;
+}
+
+.card__info-Delete {
+    display: grid;
+    gap: .5rem;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    border-radius: 1rem;
+}

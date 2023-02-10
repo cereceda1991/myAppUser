@@ -1,7 +1,7 @@
 .card__container-users {
     justify-content: center;
     display: flex;
-    padding: 4rem;
+    padding: 4rem 0rem 10rem 0rem;
     position: absolute;
     z-index: 2;
     background-color: #0009;

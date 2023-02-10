@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import defaultValues from "../utils/defaultValuesForm";
 
 
-const FormUser = ({ createNewUser, updateInfo, updateUserById, setIsShow }) => {
+const FormUser = ({ createNewUser, updateInfo, updateUserById, setIsShow, setAlertSuccesfully }) => {
 
     const { register, reset, handleSubmit } = useForm()
 
@@ -32,7 +32,7 @@ const FormUser = ({ createNewUser, updateInfo, updateUserById, setIsShow }) => {
             <div className='card_form'>
                 <form className='form__users' onSubmit={handleSubmit(submit)}>
                     <div className='close__form'><button onClick={handleClose} >✖</button></div>
-                    <h2 className='form__tittle'>New User</h2>
+                    <h2 className='form__tittle'>{updateInfo ? 'Edit User' : 'New User'}</h2>
 
                     <div className='info__user'>
                         <label htmlFor=" firstName">First Name: </label>
@@ -50,7 +50,7 @@ const FormUser = ({ createNewUser, updateInfo, updateUserById, setIsShow }) => {
                         <label htmlFor="birthday">Date of Birth: </label>
                         <input className='birthday' {...register('birthday')} type="date" id='birthday' />
                     </div>
-                    <button className='buttton__addUser'>{updateInfo ? 'Update' : 'Add New User'}</button>
+                    <button className='buttton__addUser' >{updateInfo ? 'Save Changes' : 'Add New User'}</button>
                 </form>
             </div>
         </div>

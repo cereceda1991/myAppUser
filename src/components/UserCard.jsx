@@ -1,9 +1,12 @@
 import '../CSS/UserCard.css'
 import React from 'react'
 
-const UserCard = ({ user, deleteUserById, setUpdateInfo, setIsShow }) => {
+const UserCard = ({ user, deleteUserById, setUpdateInfo, onDelete, setIsShow }) => {
 
-    const handleDelete = () => { deleteUserById(user.id) }
+    const handleDelete = () => {
+        deleteUserById(user.id);
+        onDelete(user.id);
+    }
 
     const handleUpdate = () => setUpdateInfo(user)
 
@@ -19,7 +22,12 @@ const UserCard = ({ user, deleteUserById, setUpdateInfo, setIsShow }) => {
                 <li><p> Date of Birth:</p><span><i className='bx bx-gift' />{user.birthday} </span></li>
             </ul>
             <div className='container__butttons'>
-                <button className='buttton__trash' onClick={handleDelete}><i className='bx bx-trash' /></button>
+                <button className='buttton__trash'
+                    onClick={(id) => {
+                        handleDelete(id)
+                    }}>
+
+                    <i className='bx bx-trash' /></button>
                 <button className='button__pencil'
 
                     onClick={() => {
