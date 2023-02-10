@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import defaultValues from "../utils/defaultValuesForm";
 
 
-const FormUser = ({ createNewUser, updateInfo, updateUserById, setIsShow, setAlertSuccesfully }) => {
+const FormUser = ({ createNewUser, updateInfo, updateUserById, setIsShow }) => {
 
     const { register, reset, handleSubmit } = useForm()
 

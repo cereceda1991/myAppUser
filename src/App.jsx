@@ -82,9 +82,7 @@ function App() {
           createNewUser={createNewUser}
           updateInfo={updateInfo}
           updateUserById={updateUserById}
-          setShowDeleteUser={setShowDeleteUser}
           setIsShow={setIsShow}
-          setAlertSuccesfully={setAlertSuccesfully}
         />
       }
       {showDeleteUser && deletedUserId &&
