@@ -1,0 +1,54 @@
+.card__user {
+    display: grid;
+    background-color: #fff;
+    gap: 1rem;
+    border: 1px solid #E5E5E5;
+    border-radius: .3rem;
+    padding: 1rem 2rem;
+    width: 20rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.card__user p {
+    color: #7B8FA1;
+    ;
+}
+
+.card__user ul,
+li {
+    display: grid;
+    gap: .3rem
+}
+
+.container__butttons {
+    display: flex;
+    gap: .5rem;
+    justify-content: right;
+    align-items: center;
+    padding: .5rem .5rem;
+}
+
+.card__user button {
+    font-size: 1.7rem;
+    cursor: pointer;
+    border-radius: .3rem;
+    padding: .2rem;
+    border: solid 1px;
+    transition: transform 0.2s;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}
+
+.card__user button:hover {
+    transform: scale(.9);
+}
+
+.button__pencil {
+    background: #F7F7F7;
+    color: #7B8FA1;
+
+}
+
+.buttton__trash {
+    background: #F94A29;
+    color: #F0EEED;
+}

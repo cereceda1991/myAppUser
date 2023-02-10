@@ -1,0 +1,26 @@
+.container__users {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 5rem;
+    justify-content: center;
+}
+
+.card_tittle {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    top: 1rem;
+    z-index: 2;
+    position: absolute;
+}
+
+.card_tittle button {
+    cursor: pointer;
+    padding: .5rem;
+    color: white;
+    background-color: #555A88;
+    border: none;
+    border-radius: .2rem;
+
+}
