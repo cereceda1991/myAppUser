@@ -52,7 +52,7 @@
 }
 
 .check__del-msg {
-    color: #FFBF00;
+    color: red;
     font-size: 5rem;
     text-align: center;
     text-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;

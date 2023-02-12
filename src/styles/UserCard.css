@@ -35,12 +35,7 @@ li {
     border-radius: .3rem;
     padding: .2rem;
     border: solid 1px;
-    transition: transform 0.2s;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
-}
-
-.card__user button:hover {
-    transform: scale(.9);
 }
 
 .button__pencil {

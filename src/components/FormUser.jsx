@@ -5,7 +5,7 @@ import Swal from 'sweetalert2'
 import defaultValues from "../utils/defaultValuesForm";
 
 
-const FormUser = ({ createNewUser, updateInfo, setUpdateInfo, updateUserById, setShowForm }) => {
+const FormUser = ({ createNewUser, updateInfo, setUpdateInfo, updateUserById, setShowForm, setShowEmptyInfo }) => {
 
 	const { register, reset, handleSubmit } = useForm()
 
@@ -24,7 +24,8 @@ const FormUser = ({ createNewUser, updateInfo, setUpdateInfo, updateUserById, se
 
 	const submit = data => {
 		if (!data.first_name || !data.last_name || !data.email || !data.password || !data.birthday) {
-			return console.log("error")
+			setShowEmptyInfo(true);
+			setShowForm(false);
 		}
 
 		if (updateInfo) {

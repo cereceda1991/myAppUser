@@ -5,6 +5,7 @@ import AddUser from './components/AddUser'
 import DeleteUser from './components/DeleteUser'
 import FormUser from './components/FormUser'
 import UserCard from './components/UserCard'
+import EmptyInfo from './components/EmptyInfo'
 
 function App() {
 
@@ -12,13 +13,12 @@ function App() {
   const [updateInfo, setUpdateInfo] = useState()
   const [showForm, setShowForm] = useState(false)
   const [alertSuccesfully, setAlertSuccesfully] = useState(false)
+  const [showEmptyInfo, setShowEmptyInfo] = useState(false)
 
   const [showDeleteUser, setShowDeleteUser] = useState(false)
-  //!agregado
   const [deletedUserId, setDeletedUserId] = useState();
   const [deletedUser, setDeletedUser] = useState({});
 
-  //!termina
 
   const getAllUsers = () => {
     const url = "https://users-crud.academlo.tech/users/"
@@ -85,6 +85,7 @@ function App() {
           updateUserById={updateUserById}
           setShowForm={setShowForm}
           setUpdateInfo={setUpdateInfo}
+          setShowEmptyInfo={setShowEmptyInfo}
         />
       }
       {showDeleteUser && <DeleteUser
@@ -98,6 +99,12 @@ function App() {
         <AddUser
           setAlertSuccesfully={setAlertSuccesfully} />
       }
+
+      {showEmptyInfo &&
+        <EmptyInfo
+          setShowEmptyInfo={setShowEmptyInfo}
+          setShowForm={setShowForm}
+        />}
 
       <div className='container__users'>
         {users
