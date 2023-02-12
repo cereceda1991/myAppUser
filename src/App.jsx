@@ -18,7 +18,7 @@ function App() {
   const [showDeleteUser, setShowDeleteUser] = useState(false)
   const [deletedUser, setDeletedUser] = useState({});
   const [infoNewUser, setInfoNewUser] = useState({})
-  const [infoEditUser, setinfoEditUser] = useState({})
+  const [infoEditUser, setInfoEditUser] = useState({})
 
 
   const getAllUsers = () => {
@@ -62,7 +62,7 @@ function App() {
         console.log(res.data)
         getAllUsers()
         setUpdateInfo()
-        setinfoEditUser(res.data)
+        setInfoEditUser(res.data)
         setAlertSuccesfully(true)
       })
       .catch(err => console.log(err))
@@ -104,6 +104,7 @@ function App() {
           infoNewUser={infoNewUser}
           setInfoNewUser={setInfoNewUser}
           infoEditUser={infoEditUser}
+          setInfoEditUser={setInfoEditUser}
         />
       }
 

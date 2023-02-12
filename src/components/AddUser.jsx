@@ -1,10 +1,11 @@
 import React from 'react'
 import '../styles/AddUser.css'
 
-const AddUser = ({ setAlertSuccesfully, infoNewUser, setInfoNewUser, infoEditUser }) => {
+const AddUser = ({ setAlertSuccesfully, infoNewUser, setInfoNewUser, infoEditUser, setInfoEditUser }) => {
 
     const handleClose = () => {
         setInfoNewUser()
+        setInfoEditUser()
         setAlertSuccesfully(false)
     }
 
@@ -14,17 +15,17 @@ const AddUser = ({ setAlertSuccesfully, infoNewUser, setInfoNewUser, infoEditUse
                 <div onClick={handleClose} className='close__add-msg'>✖</div>
                 <div className='check__add-msg'><i className='bx bxs-check-circle' /></div>
                 {
-                    infoNewUser ? (<div className='info__userCreate'>
-                        <h4>{infoNewUser?.first_name} {infoNewUser?.last_name}</h4>
-                        <p>New user has been created successfully</p>
-                    </div>
-                    ) : (
+                    infoNewUser && infoNewUser.first_name && infoNewUser.last_name ? (
+                        <>
+                            <h4>{infoNewUser.first_name} {infoNewUser.last_name}</h4>
+                            <p>New user has been created successfully</p>
+                        </>
+                    ) : infoEditUser && infoEditUser.first_name && infoEditUser.last_name ? (
                         <>
                             <h4>{infoEditUser.first_name} {infoEditUser.last_name}</h4>
-                            <p> User information has been updated successfully</p>
+                            <p>User information has been updated successfully</p>
                         </>
-
-                    )
+                    ) : null
                 }
                 <button className='buttom__agree' onClick={handleClose}>Agree</button>
             </div>
@@ -33,4 +34,3 @@ const AddUser = ({ setAlertSuccesfully, infoNewUser, setInfoNewUser, infoEditUse
 }
 
 export default AddUser
-
