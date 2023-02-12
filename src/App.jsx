@@ -17,8 +17,8 @@ function App() {
 
   const [showDeleteUser, setShowDeleteUser] = useState(false)
   const [deletedUser, setDeletedUser] = useState({});
-  const [userCreMod, setUserCreMod] = useState({})
   const [infoNewUser, setInfoNewUser] = useState({})
+  const [infoEditUser, setinfoEditUser] = useState({})
 
 
   const getAllUsers = () => {
@@ -62,6 +62,7 @@ function App() {
         console.log(res.data)
         getAllUsers()
         setUpdateInfo()
+        setinfoEditUser(res.data)
         setAlertSuccesfully(true)
       })
       .catch(err => console.log(err))
@@ -71,6 +72,8 @@ function App() {
     setShowForm(true);
   };
 
+
+  console.log(infoEditUser);
 
   return (
 
@@ -98,9 +101,9 @@ function App() {
       {alertSuccesfully &&
         <AddUser
           setAlertSuccesfully={setAlertSuccesfully}
-          userCreMod={userCreMod}
-          setUserCreMod={setUserCreMod}
           infoNewUser={infoNewUser}
+          setInfoNewUser={setInfoNewUser}
+          infoEditUser={infoEditUser}
         />
       }
 
@@ -122,7 +125,6 @@ function App() {
               setShowForm={setShowForm}
               setShowDeleteUser={setShowDeleteUser}
               setDeletedUser={setDeletedUser}
-              setUserCreMod={setUserCreMod}
             />
           ))
         }

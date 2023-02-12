@@ -8,7 +8,7 @@ const FormUser = ({ createNewUser, updateInfo, setUpdateInfo, updateUserById, se
 	const { register, reset, handleSubmit } = useForm()
 
 	const handleClose = () => {
-		reset(defaultValues)
+		// reset(defaultValues)
 		setUpdateInfo()
 		setShowForm(false);
 	};
@@ -18,26 +18,6 @@ const FormUser = ({ createNewUser, updateInfo, setUpdateInfo, updateUserById, se
 			reset(updateInfo)
 		}
 	}, [updateInfo])
-
-	// const submit = data => {
-	// 	if (!data.first_name || !data.last_name || !data.email || !data.password || !data.birthday) {
-	// 		setShowEmptyInfo(true);
-	// 		setShowForm(false);
-	// 		return;
-	// 	}
-
-	// 	if (updateInfo) {
-	// 		updateUserById(updateInfo.id, data)
-	// 	} else {
-	// 		createNewUser(data)
-	// 		handleClose()
-	// 	}
-
-	// 	if (updateInfo) {
-	// 		reset(defaultValues)
-	// 		setShowForm(false)
-	// 	}
-	// };
 
 	const submit = data => {
 		if (!data.first_name || !data.last_name || !data.email || !data.password || !data.birthday) {

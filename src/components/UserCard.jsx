@@ -1,7 +1,7 @@
 import '../styles/UserCard.css'
 import React from 'react'
 
-const UserCard = ({ user, deleteUserById, setUpdateInfo, setShowForm, setShowDeleteUser, setDeletedUser, setUserCreMod }) => {
+const UserCard = ({ user, deleteUserById, setUpdateInfo, setShowForm, setShowDeleteUser, setDeletedUser }) => {
 
     const handleDelete = () => {
         deleteUserById(user.id);
@@ -11,7 +11,6 @@ const UserCard = ({ user, deleteUserById, setUpdateInfo, setShowForm, setShowDel
 
     const handleUpdate = () => {
         setUpdateInfo(user)
-        setUserCreMod(user)
     }
 
     const handleShow = () => {
