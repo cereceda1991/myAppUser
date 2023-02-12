@@ -16,8 +16,9 @@ function App() {
   const [showEmptyInfo, setShowEmptyInfo] = useState(false)
 
   const [showDeleteUser, setShowDeleteUser] = useState(false)
-  const [deletedUserId, setDeletedUserId] = useState();
   const [deletedUser, setDeletedUser] = useState({});
+  const [userCreMod, setUserCreMod] = useState({})
+  const [infoNewUser, setInfoNewUser] = useState({})
 
 
   const getAllUsers = () => {
@@ -31,12 +32,12 @@ function App() {
     getAllUsers()
   }, [])
 
-
   const createNewUser = (data) => {
     const url = 'https://users-crud.academlo.tech/users/'
     axios.post(url, data)
       .then(res => {
         console.log(res.data)
+        setInfoNewUser(res.data)
         getAllUsers()
         setAlertSuccesfully(true)
       })
@@ -91,13 +92,16 @@ function App() {
       {showDeleteUser && <DeleteUser
         showDeleteUser={showDeleteUser}
         setShowDeleteUser={setShowDeleteUser}
-        deletedUserId={deletedUserId}
         deletedUser={deletedUser}
       />}
 
       {alertSuccesfully &&
         <AddUser
-          setAlertSuccesfully={setAlertSuccesfully} />
+          setAlertSuccesfully={setAlertSuccesfully}
+          userCreMod={userCreMod}
+          setUserCreMod={setUserCreMod}
+          infoNewUser={infoNewUser}
+        />
       }
 
       {showEmptyInfo &&
@@ -116,18 +120,12 @@ function App() {
               deleteUserById={deleteUserById}
               setUpdateInfo={setUpdateInfo}
               setShowForm={setShowForm}
-              //!agregado
               setShowDeleteUser={setShowDeleteUser}
-              setDeletedUserId={setDeletedUserId}
               setDeletedUser={setDeletedUser}
+              setUserCreMod={setUserCreMod}
             />
-
-
-
-
           ))
         }
-
       </div>
       <div className='footer__info'>
         <p>

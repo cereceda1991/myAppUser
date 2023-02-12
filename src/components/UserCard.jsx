@@ -1,22 +1,23 @@
 import '../styles/UserCard.css'
 import React from 'react'
 
-const UserCard = ({ user, deleteUserById, setUpdateInfo, setShowForm, setShowDeleteUser, setDeletedUserId, setDeletedUser }) => {
+const UserCard = ({ user, deleteUserById, setUpdateInfo, setShowForm, setShowDeleteUser, setDeletedUser, setUserCreMod }) => {
 
-    //agregamos prop ondelete
     const handleDelete = () => {
         deleteUserById(user.id);
-        //!agregado
-        setDeletedUserId(user.id);
         setDeletedUser(user);
         setShowDeleteUser(true);
     }
 
-    const handleUpdate = () => setUpdateInfo(user)
+    const handleUpdate = () => {
+        setUpdateInfo(user)
+        setUserCreMod(user)
+    }
 
     const handleShow = () => {
         setShowForm(true);
     };
+
 
     return (
         <article className='card__user'>

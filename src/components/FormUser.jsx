@@ -1,9 +1,7 @@
 import '../styles/FormUser.css'
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import Swal from 'sweetalert2'
 import defaultValues from "../utils/defaultValuesForm";
-
 
 const FormUser = ({ createNewUser, updateInfo, setUpdateInfo, updateUserById, setShowForm, setShowEmptyInfo }) => {
 

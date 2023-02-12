@@ -47,3 +47,14 @@
 .buttom__agree:hover {
     background-color: blueviolet;
 }
+
+.card__add-msg h4 {
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.info__userCreate {
+    display: grid;
+    text-align: center;
+    gap: .5rem;
+}
