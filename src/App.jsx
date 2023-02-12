@@ -6,20 +6,21 @@ import DeleteUser from './components/DeleteUser'
 import FormUser from './components/FormUser'
 import UserCard from './components/UserCard'
 import EmptyInfo from './components/EmptyInfo'
+import Loading from './components/Loading'
 
 function App() {
 
   const [users, setUsers] = useState()
   const [updateInfo, setUpdateInfo] = useState()
-  const [showForm, setShowForm] = useState(false)
-  const [alertSuccesfully, setAlertSuccesfully] = useState(false)
-  const [showEmptyInfo, setShowEmptyInfo] = useState(false)
 
+  const [showForm, setShowForm] = useState(false)
+  const [showEmptyInfo, setShowEmptyInfo] = useState(false)
+  const [alertSuccesfully, setAlertSuccesfully] = useState(false)
   const [showDeleteUser, setShowDeleteUser] = useState(false)
+  const [intoLoading, setIntoLoading] = useState(true)
   const [deletedUser, setDeletedUser] = useState({});
   const [infoNewUser, setInfoNewUser] = useState({})
   const [infoEditUser, setInfoEditUser] = useState({})
-
 
   const getAllUsers = () => {
     const url = "https://users-crud.academlo.tech/users/"
@@ -29,8 +30,11 @@ function App() {
   }
 
   useEffect(() => {
-    getAllUsers()
-  }, [])
+    getAllUsers();
+    setTimeout(() => {
+      setIntoLoading(false);
+    }, 4000);
+  }, []);
 
   const createNewUser = (data) => {
     const url = 'https://users-crud.academlo.tech/users/'
@@ -59,7 +63,7 @@ function App() {
     const url = `https://users-crud.academlo.tech/users/${id}/`
     axios.put(url, data)
       .then(res => {
-        console.log(res.data)
+        // console.log(res.data)
         getAllUsers()
         setUpdateInfo()
         setInfoEditUser(res.data)
@@ -72,72 +76,69 @@ function App() {
     setShowForm(true);
   };
 
-
-  console.log(infoEditUser);
-
   return (
 
     <div className="App">
-      <div className='card_tittle'>
-        <h1>Users</h1>
-        <button className='add__user' onClick={handleShow}> <i className='bx bx-user-plus bx-flip-horizontal add__icon' />Add New User</button>
-      </div>
-      {showForm &&
-        <FormUser
-          createNewUser={createNewUser}
-          updateInfo={updateInfo}
-          updateUserById={updateUserById}
-          setShowForm={setShowForm}
-          setUpdateInfo={setUpdateInfo}
-          setShowEmptyInfo={setShowEmptyInfo}
-        />
-      }
-      {showDeleteUser && <DeleteUser
-        showDeleteUser={showDeleteUser}
-        setShowDeleteUser={setShowDeleteUser}
-        deletedUser={deletedUser}
-      />}
-
-      {alertSuccesfully &&
-        <AddUser
-          setAlertSuccesfully={setAlertSuccesfully}
-          infoNewUser={infoNewUser}
-          setInfoNewUser={setInfoNewUser}
-          infoEditUser={infoEditUser}
-          setInfoEditUser={setInfoEditUser}
-        />
-      }
-
-      {showEmptyInfo &&
-        <EmptyInfo
-          setShowEmptyInfo={setShowEmptyInfo}
-          setShowForm={setShowForm}
-        />}
-
-      <div className='container__users'>
-        {users
-          ?.sort((a, b) => b.id - a.id)
-          .map(user => (
-            <UserCard
-              key={user.id}
-              user={user}
-              deleteUserById={deleteUserById}
-              setUpdateInfo={setUpdateInfo}
+      {intoLoading ? <Loading /> :
+        <div>
+          <div className='card_tittle'>
+            <h1>Users</h1>
+            <button className='add__user' onClick={handleShow}> <i className='bx bx-user-plus bx-flip-horizontal add__icon' />Add New User</button>
+          </div>
+          {showForm &&
+            <FormUser
+              createNewUser={createNewUser}
+              updateInfo={updateInfo}
+              updateUserById={updateUserById}
               setShowForm={setShowForm}
-              setShowDeleteUser={setShowDeleteUser}
-              setDeletedUser={setDeletedUser}
+              setUpdateInfo={setUpdateInfo}
+              setShowEmptyInfo={setShowEmptyInfo}
             />
-          ))
-        }
-      </div>
-      <div className='footer__info'>
-        <p>
-          <a className='linkedin' href='https://www.linkedin.com/in/maxcereceda/' target={'_blank'}><i className='bx bxl-linkedin-square' /></a>
-          <a className='github' href='https://github.com/cereceda1991/myAppUser' target={'_blank'}> <i className='bx bxl-github' /></a>
-          <a className='academlo' href='https://www.academlo.com/' target={'_blank'}><img src='https://www.academlo.com/academlo-icon-shadow.png' alt='academlo'></img></a>
-        </p>
-        <span>Copyright © 2023 Max Cereceda. All rights reserved.</span>
-      </div>
+          }
+          {showDeleteUser && <DeleteUser
+            showDeleteUser={showDeleteUser}
+            setShowDeleteUser={setShowDeleteUser}
+            deletedUser={deletedUser}
+          />}
+          {alertSuccesfully &&
+            <AddUser
+              setAlertSuccesfully={setAlertSuccesfully}
+              infoNewUser={infoNewUser}
+              setInfoNewUser={setInfoNewUser}
+              infoEditUser={infoEditUser}
+              setInfoEditUser={setInfoEditUser}
+            />
+          }
+          {showEmptyInfo &&
+            <EmptyInfo
+              setShowEmptyInfo={setShowEmptyInfo}
+              setShowForm={setShowForm}
+            />}
+          <div className='container__users'>
+            {users
+              ?.sort((a, b) => b.id - a.id)
+              .map(user => (
+                <UserCard
+                  key={user.id}
+                  user={user}
+                  deleteUserById={deleteUserById}
+                  setUpdateInfo={setUpdateInfo}
+                  setShowForm={setShowForm}
+                  setShowDeleteUser={setShowDeleteUser}
+                  setDeletedUser={setDeletedUser}
+                />
+              ))
+            }
+          </div>
+          <div className='footer__info'>
+            <p>
+              <a className='linkedin' href='https://www.linkedin.com/in/maxcereceda/' target={'_blank'}><i className='bx bxl-linkedin-square' /></a>
+              <a className='github' href='https://github.com/cereceda1991/myAppUser' target={'_blank'}> <i className='bx bxl-github' /></a>
+              <a className='academlo' href='https://www.academlo.com/' target={'_blank'}><img src='https://www.academlo.com/academlo-icon-shadow.png' alt='academlo'></img></a>
+            </p>
+            <span>Copyright © 2023 All rights reserved.</span>
+          </div>
+        </div>}
     </div>
   )
 }

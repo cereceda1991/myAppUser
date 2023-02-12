@@ -37,8 +37,6 @@ const FormUser = ({ createNewUser, updateInfo, setUpdateInfo, updateUserById, se
 		setShowForm(false);
 	};
 
-
-
 	return (
 		<div className='card__container-users'>
 			<div className='card_form'>
@@ -58,13 +56,12 @@ const FormUser = ({ createNewUser, updateInfo, setUpdateInfo, updateUserById, se
 						<input {...register('email')} type="email" id='email' placeholder='example@email.com' autoComplete="email" />
 
 						<label htmlFor="password">Password: </label>
-
 						<input {...register('password')} type="password" id='password' placeholder='***********' autoComplete="current-password" />
 
 						<label htmlFor="birthday">Date of Birth: </label>
 						<input className='birthday' {...register('birthday')} type="date" id='birthday' />
 					</div>
-					<button className='buttton__addUser' >{updateInfo ? 'Save Changes' : 'Add New User'}</button>
+					<button className='buttton__addUser' >{updateInfo ? 'Save' : 'Add New User'}</button>
 				</form>
 			</div>
 		</div>

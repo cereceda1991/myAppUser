@@ -4,7 +4,7 @@
     gap: 1rem;
     padding: 8rem 1rem 1.5rem 1rem;
     justify-content: center;
-    background-color: #aaa;
+    background-color: #ffffff;
 }
 
 .card_tittle {
@@ -15,7 +15,7 @@
     gap: 1rem;
     padding: 2rem;
     position: fixed;
-    background-color: #1B2430;
+    background-color: #2e3132;
     border-bottom: 2px solid #aaa;
     box-shadow: 1px 1px 4px #aaa;
     color: white;
@@ -34,7 +34,7 @@
 }
 
 .card_tittle button:hover {
-    background-color: blueviolet;
+    background-color: #583bb6;
 }
 
 .add__icon {
@@ -45,7 +45,7 @@
     display: grid;
     justify-content: center;
     align-items: center;
-    background-color: #1B2430;
+    background-color: #2e3132;
     padding: 2rem;
     font-size: 2.5rem;
     color: white;

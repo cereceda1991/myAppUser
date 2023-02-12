@@ -33,7 +33,7 @@
 
 .button__DeleteUser:hover {
     cursor: pointer;
-    background-color: blueviolet;
+    background-color: #583bb6;
 }
 
 .close__del-msg {
@@ -51,13 +51,29 @@
     border: none
 }
 
+
+.user__removed {
+    text-transform: capitalize;
+}
+
 .check__del-msg {
     color: red;
     font-size: 5rem;
     text-align: center;
     text-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    animation: zoom 1s ease-in-out infinite;
 }
 
-.user__removed {
-    text-transform: capitalize;
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }

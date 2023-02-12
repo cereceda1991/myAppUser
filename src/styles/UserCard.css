@@ -2,7 +2,7 @@
     display: grid;
     background-color: #fff;
     gap: 1rem;
-    border: 1px solid #E5E5E5;
+    border: 2px solid #E5E5E5;
     border-radius: .3rem;
     padding: 1rem 2rem;
     width: 20rem;
@@ -44,7 +44,7 @@ li {
 }
 
 .buttton__trash {
-    background: #DC0000;
+    background: #fa2356;
     color: #F0EEED;
 }
 

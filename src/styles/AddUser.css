@@ -27,12 +27,6 @@
     text-align: end;
 }
 
-.check__add-msg {
-    color: #82CD47;
-    font-size: 4.5rem;
-    text-align: center;
-    text-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
 
 .buttom__agree {
     margin-top: 1rem;
@@ -45,7 +39,7 @@
 }
 
 .buttom__agree:hover {
-    background-color: blueviolet;
+    background-color: #583bb6;
 }
 
 .card__add-msg h4 {
@@ -57,4 +51,27 @@
     display: grid;
     text-align: center;
     gap: .5rem;
+}
+
+
+.check__add-msg {
+    animation: zoom 1s ease-in-out infinite;
+    color: #82CD47;
+    font-size: 4.5rem;
+    text-align: center;
+    text-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }

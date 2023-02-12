@@ -26,4 +26,19 @@
     font-size: 4.5rem;
     text-align: center;
     text-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    animation: zoom 1s ease-in-out infinite;
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
