@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import './App.css'
+import './styles/App.css'
 import AddUser from './components/AddUser'
 import DeleteUser from './components/DeleteUser'
 import FormUser from './components/FormUser'
@@ -10,10 +10,12 @@ function App() {
 
   const [users, setUsers] = useState()
   const [updateInfo, setUpdateInfo] = useState()
-  const [isShow, setIsShow] = useState(false)
-  const [deletedUserId, setDeletedUserId] = useState(null);
+  const [showForm, setShowForm] = useState(false)
+
+  const [deletedUserId, setDeletedUserId] = useState();
   const [alertSuccesfully, setAlertSuccesfully] = useState(false)
   const [showDeleteUser, setShowDeleteUser] = useState(false)
+
 
   const getAllUsers = () => {
     const url = "https://users-crud.academlo.tech/users/"
@@ -38,12 +40,11 @@ function App() {
       .catch(err => console.log(err))
   }
 
-  const deleteUserById = id => {
+  const deleteUserById = (id) => {
     const url = `https://users-crud.academlo.tech/users/${id}/`
     axios.delete(url)
       .then(res => {
         console.log(`User ${id} is deleted sucessfully`)
-        console.log(res.data);
         getAllUsers()
         setShowDeleteUser(true)
       })
@@ -63,35 +64,38 @@ function App() {
   }
 
   const handleShow = () => {
-    setIsShow(true);
+    setShowForm(true);
   };
 
   const handleUserDelete = (id) => {
     setDeletedUserId(id);
   }
 
+
   return (
 
     <div className="App">
       <div className='card_tittle'>
-        <h1>User Configuration</h1>
-        <button className='add__user' onClick={handleShow}>➕ Add New User</button>
+        <h1>Users</h1>
+        <button className='add__user' onClick={handleShow}> <i className='bx bx-user-plus bx-flip-horizontal add__icon' />Add New User</button>
       </div>
-      {isShow &&
+      {showForm &&
         <FormUser
           createNewUser={createNewUser}
           updateInfo={updateInfo}
           updateUserById={updateUserById}
-          setIsShow={setIsShow}
+          setShowForm={setShowForm}
+          setUpdateInfo={setUpdateInfo}
         />
       }
-      {showDeleteUser && deletedUserId &&
-        <DeleteUser
-          id={deletedUserId}
-          users={users}
-          setShowDeleteUser={setShowDeleteUser}
 
-        />}
+      {showDeleteUser &&
+        <DeleteUser
+          showDeleteUser={showDeleteUser}
+          setShowDeleteUser={setShowDeleteUser}
+          deletedUserId={deletedUserId}
+        />
+      }
 
       {alertSuccesfully &&
         <AddUser
@@ -99,18 +103,28 @@ function App() {
       }
 
       <div className='container__users'>
-        {
-          users?.map(user => (
+        {users
+          ?.sort((a, b) => b.id - a.id)
+          .map(user => (
             <UserCard
               key={user.id}
               user={user}
               deleteUserById={deleteUserById}
               setUpdateInfo={setUpdateInfo}
-              setIsShow={setIsShow}
+              setShowForm={setShowForm}
               onDelete={handleUserDelete}
             />
           ))
         }
+
+      </div>
+      <div className='footer__info'>
+        <p>
+          <a className='linkedin' href='https://www.linkedin.com/in/maxcereceda/' target={'_blank'}><i className='bx bxl-linkedin-square' /></a>
+          <a className='github' href='https://github.com/cereceda1991/myAppUser' target={'_blank'}> <i className='bx bxl-github' /></a>
+          <a className='academlo' href='https://www.academlo.com/' target={'_blank'}><img src='https://www.academlo.com/academlo-icon-shadow.png' alt='academlo'></img></a>
+        </p>
+        <span>Copyright © 2023 Max Cereceda. All rights reserved.</span>
       </div>
     </div>
   )

@@ -1,6 +1,6 @@
 .card__container-users {
-    display: grid;
-    z-index: 2;
+    display: flex;
+    /* z-index: 2; */
     justify-content: center;
     align-items: center;
     position: fixed;
@@ -9,32 +9,18 @@
     bottom: 0;
     left: 0;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 4rem 0rem 10rem 0rem;
+    backdrop-filter: blur(3px);
 }
 
 .form__users {
-    background-color: #fff;
     display: grid;
     gap: .5rem;
     padding: 1rem 2rem 2rem 2rem;
-    width: 400px;
-}
-
-.buttton__addUser {
-    margin-top: 1.5rem;
-    border-radius: .1rem;
-    border: none;
-    padding: .5rem;
-    background-color: #555A88;
-    color: white;
-    cursor: pointer;
-}
-
-.info__user {
-    display: grid;
-    gap: .5rem;
+    width: 300px;
+    background-color: #fff;
+    border-radius: .2rem;
 }
 
 .info__user input {
@@ -46,8 +32,38 @@
     border: solid 1px #C3C1C1;
 }
 
+.name__user {
+    text-transform: capitalize;
+}
+
+.lastname__user {
+    text-transform: capitalize;
+}
+
 .birthday {
+    display: flex;
     text-transform: uppercase;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttton__addUser {
+    margin-top: 1.5rem;
+    border-radius: .1rem;
+    cursor: pointer;
+    border: none;
+    padding: .5rem;
+    background-color: #555A88;
+    color: white;
+}
+
+.buttton__addUser:hover {
+    background-color: blueviolet;
+}
+
+.info__user {
+    display: grid;
+    gap: .5rem;
 }
 
 .close__form {
@@ -61,6 +77,11 @@
     border: none;
     width: max-content;
     background-color: transparent;
+    transition: transform 100ms ease;
+}
+
+.close__form button:hover {
+    transform: scale(1.2);
 }
 
 .form__tittle {

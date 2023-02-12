@@ -11,6 +11,7 @@
     height: 100vh;
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
 }
 
 .card__info-Delete {
@@ -39,6 +40,8 @@
 .close__del-msg {
     text-align: end;
     cursor: pointer;
+    font-weight: bolder;
+    font-size: 1.5rem;
 }
 
 .close__del-msg button {

@@ -1,5 +1,5 @@
 import React from 'react'
-import '../CSS/AddUser.css'
+import '../styles/AddUser.css'
 
 const AddUser = ({ setAlertSuccesfully }) => {
 
@@ -8,9 +8,9 @@ const AddUser = ({ setAlertSuccesfully }) => {
     return (
         <div className='container__Add'>
             <div className='card__add-msg'>
-                <div className='close__add-msg'><button onClick={handleClose}>✖</button></div>
+                <div onClick={handleClose} className='close__add-msg'>✖</div>
                 <div className='check__add-msg'><i className='bx bxs-check-circle' /></div>
-                <p>All parameters were successfully added</p>
+                <p>All parameters added successfully</p>
                 <button className='buttom__agree' onClick={handleClose}>Agree</button>
             </div>
         </div>
