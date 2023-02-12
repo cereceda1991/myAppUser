@@ -11,11 +11,14 @@ function App() {
   const [users, setUsers] = useState()
   const [updateInfo, setUpdateInfo] = useState()
   const [showForm, setShowForm] = useState(false)
-
-  const [deletedUserId, setDeletedUserId] = useState();
   const [alertSuccesfully, setAlertSuccesfully] = useState(false)
-  const [showDeleteUser, setShowDeleteUser] = useState(false)
 
+  const [showDeleteUser, setShowDeleteUser] = useState(false)
+  //!agregado
+  const [deletedUserId, setDeletedUserId] = useState();
+  const [deletedUser, setDeletedUser] = useState({});
+
+  //!termina
 
   const getAllUsers = () => {
     const url = "https://users-crud.academlo.tech/users/"
@@ -67,10 +70,6 @@ function App() {
     setShowForm(true);
   };
 
-  const handleUserDelete = (id) => {
-    setDeletedUserId(id);
-  }
-
 
   return (
 
@@ -88,14 +87,12 @@ function App() {
           setUpdateInfo={setUpdateInfo}
         />
       }
-
-      {showDeleteUser &&
-        <DeleteUser
-          showDeleteUser={showDeleteUser}
-          setShowDeleteUser={setShowDeleteUser}
-          deletedUserId={deletedUserId}
-        />
-      }
+      {showDeleteUser && <DeleteUser
+        showDeleteUser={showDeleteUser}
+        setShowDeleteUser={setShowDeleteUser}
+        deletedUserId={deletedUserId}
+        deletedUser={deletedUser}
+      />}
 
       {alertSuccesfully &&
         <AddUser
@@ -112,8 +109,15 @@ function App() {
               deleteUserById={deleteUserById}
               setUpdateInfo={setUpdateInfo}
               setShowForm={setShowForm}
-              onDelete={handleUserDelete}
+              //!agregado
+              setShowDeleteUser={setShowDeleteUser}
+              setDeletedUserId={setDeletedUserId}
+              setDeletedUser={setDeletedUser}
             />
+
+
+
+
           ))
         }
 

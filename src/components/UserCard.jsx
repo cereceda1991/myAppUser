@@ -1,11 +1,15 @@
 import '../styles/UserCard.css'
 import React from 'react'
 
-const UserCard = ({ user, deleteUserById, setUpdateInfo, onDelete, setShowForm }) => {
+const UserCard = ({ user, deleteUserById, setUpdateInfo, setShowForm, setShowDeleteUser, setDeletedUserId, setDeletedUser }) => {
 
+    //agregamos prop ondelete
     const handleDelete = () => {
         deleteUserById(user.id);
-        onDelete(user.id);
+        //!agregado
+        setDeletedUserId(user.id);
+        setDeletedUser(user);
+        setShowDeleteUser(true);
     }
 
     const handleUpdate = () => setUpdateInfo(user)
@@ -23,16 +27,16 @@ const UserCard = ({ user, deleteUserById, setUpdateInfo, onDelete, setShowForm }
             </ul>
             <div className='container__butttons'>
                 <button className='buttton__trash'
-                    onClick={(id) => {
-                        handleDelete(id)
+                    onClick={() => {
+                        handleDelete()
                     }}>
-
-                    <i className='bx bx-trash' /></button>
+                    <i className='bx bx-trash' />
+                </button>
                 <button className='button__pencil'
 
                     onClick={() => {
-                        handleUpdate()
-                        handleShow()
+                        handleUpdate();
+                        handleShow();
                     }}>
 
                     <i className='bx bx-pencil ' /></button>

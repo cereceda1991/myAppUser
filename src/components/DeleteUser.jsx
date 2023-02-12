@@ -1,6 +1,6 @@
 import '../styles/DeletedUser.css'
 
-function DeletedUser({ showDeleteUser, setShowDeleteUser, deletedUserId }) {
+function DeletedUser({ showDeleteUser, setShowDeleteUser, deletedUserId, deletedUser }) {
 
     const handleCloser = () => {
         setShowDeleteUser(false)
@@ -13,9 +13,9 @@ function DeletedUser({ showDeleteUser, setShowDeleteUser, deletedUserId }) {
                     <div className='close__del-msg'>X</div>
                     <h2>Deleted User Information</h2>
                     <h1 className='check__del-msg'><i className='bx bx-error-alt' /></h1>
-                    <p>ID: {deletedUserId}</p>
-                    <p>Nombre: Aqui </p>
-                    <button className='button__DeleteUser' onClick={handleCloser}>Cerrar</button>
+                    <p>ID: <b>{deletedUserId}</b></p>
+                    <p>User <b className='user__removed'>{deletedUser.first_name} {deletedUser.last_name}</b> has been removed </p>
+                    <button className='button__DeleteUser' onClick={handleCloser}>Agree</button>
                 </div>
             )}
         </div>
