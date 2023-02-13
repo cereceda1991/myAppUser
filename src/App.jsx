@@ -82,7 +82,7 @@ function App() {
       {intoLoading ? <Loading /> :
         <div>
           <div className='card_tittle'>
-            <h1>Users</h1>
+            <h1>Users </h1>
             <button className='add__user' onClick={handleShow}> <i className='bx bx-user-plus bx-flip-horizontal add__icon' />Add New User</button>
           </div>
           {showForm &&

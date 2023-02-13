@@ -86,3 +86,26 @@
 .form__tittle {
     padding-bottom: 1rem;
 }
+
+.content__password {
+    position: relative;
+}
+
+.content__password input {
+    width: 100%;
+    max-height: 1rem;
+}
+
+.show__pasword {
+    position: absolute;
+    top: 10%;
+    right: 1%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-family: inherit;
+    transition: transform 1s ease;
+}
+
+.show__pasword:hover {
+    transform: scale(1.2);
+}

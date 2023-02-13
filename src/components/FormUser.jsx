@@ -1,9 +1,11 @@
 import '../styles/FormUser.css'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import defaultValues from "../utils/defaultValuesForm";
 
 const FormUser = ({ createNewUser, updateInfo, setUpdateInfo, updateUserById, setShowForm, setShowEmptyInfo }) => {
+
+	const [showPassword, setShowPassword] = useState(false);
 
 	const { register, reset, handleSubmit } = useForm()
 
@@ -46,7 +48,6 @@ const FormUser = ({ createNewUser, updateInfo, setUpdateInfo, updateUserById, se
 
 					<div className='info__user'>
 						<label htmlFor=" firstName">First Name: </label>
-
 						<input className='name__user' {...register("first_name")} type="text" id='firstName' placeholder='Enter your name' />
 
 						<label htmlFor="lastName">Last Name: </label>
@@ -55,9 +56,22 @@ const FormUser = ({ createNewUser, updateInfo, setUpdateInfo, updateUserById, se
 						<label htmlFor="email" >Email: </label>
 						<input {...register('email')} type="email" id='email' placeholder='example@email.com' autoComplete="email" />
 
-						<label htmlFor="password">Password: </label>
-						<input {...register('password')} type="password" id='password' placeholder='***********' autoComplete="current-password" />
-
+						<label htmlFor="password" >Password: </label>
+						<div className='content__password'>
+							<input
+								{...register('password')}
+								type={showPassword ? 'text' : 'password'}
+								id='password'
+								placeholder='***********'
+								autoComplete="current-password"
+							/>
+							<button type="button" onClick={(event) => {
+								event.preventDefault();
+								setShowPassword(!showPassword);
+							}}>
+								<i className='bx bx-show show__pasword' />
+							</button>
+						</div>
 						<label htmlFor="birthday">Date of Birth: </label>
 						<input className='birthday' {...register('birthday')} type="date" id='birthday' />
 					</div>
