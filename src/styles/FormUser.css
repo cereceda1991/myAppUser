@@ -98,12 +98,14 @@
 
 .show__pasword {
     position: absolute;
-    top: 10%;
+    top: 15%;
     right: 1%;
     font-size: 1.5rem;
     cursor: pointer;
     font-family: inherit;
     transition: transform 1s ease;
+    background-color: transparent;
+    border: none;
 }
 
 .show__pasword:hover {

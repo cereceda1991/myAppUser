@@ -58,18 +58,16 @@ const FormUser = ({ createNewUser, updateInfo, setUpdateInfo, updateUserById, se
 
 						<label htmlFor="password" >Password: </label>
 						<div className='content__password'>
-							<input
-								{...register('password')}
+							<input {...register('password')}
 								type={showPassword ? 'text' : 'password'}
 								id='password'
 								placeholder='***********'
 								autoComplete="current-password"
 							/>
-							<button type="button" onClick={(event) => {
+							<button className='show__pasword' type="button" onClick={(event) => {
 								event.preventDefault();
 								setShowPassword(!showPassword);
-							}}>
-								<i className='bx bx-show show__pasword' />
+							}}><i className='bx bx-show ' />
 							</button>
 						</div>
 						<label htmlFor="birthday">Date of Birth: </label>
