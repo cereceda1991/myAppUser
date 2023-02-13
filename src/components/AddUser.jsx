@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../styles/AddUser.css'
 
 const AddUser = ({ setAlertSuccesfully, infoNewUser, setInfoNewUser, infoEditUser, setInfoEditUser }) => {
@@ -8,6 +8,13 @@ const AddUser = ({ setAlertSuccesfully, infoNewUser, setInfoNewUser, infoEditUse
         setInfoEditUser()
         setAlertSuccesfully(false)
     }
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            handleClose();
+        }, 3000);
+        return () => clearTimeout(timer);
+    }, []);
 
     return (
         <div className='container__Add'>

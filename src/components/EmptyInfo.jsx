@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../styles/EmptyInfo.css'
 
 const EmptyInfo = ({ setShowEmptyInfo, setShowForm }) => {
@@ -6,8 +6,15 @@ const EmptyInfo = ({ setShowEmptyInfo, setShowForm }) => {
     const handleShowEmpty = () => {
         setShowEmptyInfo(false)
         setShowForm(true)
-
     }
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            handleShowEmpty();
+        }, 2000);
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         <div className='container__empty'>
             <div className='card__empty'>

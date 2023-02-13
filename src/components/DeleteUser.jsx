@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import '../styles/DeletedUser.css'
 
 function DeletedUser({ showDeleteUser, setShowDeleteUser, deletedUser }) {
@@ -5,6 +6,13 @@ function DeletedUser({ showDeleteUser, setShowDeleteUser, deletedUser }) {
     const handleCloser = () => {
         setShowDeleteUser(false)
     }
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            handleCloser();
+        }, 3000);
+        return () => clearTimeout(timer);
+    }, []);
 
     return (
         <div className='card__delete-user'>
