@@ -12,6 +12,7 @@
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(3px);
+    padding: 1rem;
 }
 
 .card__info-Delete {
