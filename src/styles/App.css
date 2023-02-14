@@ -1,9 +1,9 @@
 .container__users {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 1rem;
     padding: 8rem 1rem 1.5rem 1rem;
-    justify-content: center;
     background-color: #ffffff;
 }
 

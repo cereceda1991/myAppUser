@@ -67,7 +67,7 @@ const FormUser = ({ createNewUser, updateInfo, setUpdateInfo, updateUserById, se
 							<button className='show__pasword' type="button" onClick={(event) => {
 								event.preventDefault();
 								setShowPassword(!showPassword);
-							}}><i className='bx bx-show ' />
+							}}> <i className={showPassword ? 'bx bxs-low-vision' : 'bx bx-show'} />
 							</button>
 						</div>
 						<label htmlFor="birthday">Date of Birth: </label>
