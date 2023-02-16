@@ -9,8 +9,7 @@ const FormUser = ({ createNewUser, updateInfo, setUpdateInfo, updateUserById, se
 
 	const { register, reset, handleSubmit } = useForm()
 
-	const handleClose = () => {
-		// reset(defaultValues)
+	const handleClose = (e) => {
 		setUpdateInfo()
 		setShowForm(false);
 	};
@@ -21,7 +20,7 @@ const FormUser = ({ createNewUser, updateInfo, setUpdateInfo, updateUserById, se
 		}
 	}, [updateInfo])
 
-	const submit = data => {
+	const submit = (data) => {
 		if (!data.first_name || !data.last_name || !data.email || !data.password || !data.birthday) {
 			setShowEmptyInfo(true);
 			setShowForm(false);
@@ -39,10 +38,18 @@ const FormUser = ({ createNewUser, updateInfo, setUpdateInfo, updateUserById, se
 		setShowForm(false);
 	};
 
+	const handleKeyDown = (event) => {
+		if (event.key === 'Enter') {
+			// event.preventDefault();
+			setShowEmptyInfo(true);
+			setShowForm(false);
+		}
+	};
+
 	return (
 		<div className='card__container-users'>
 			<div className='card_form'>
-				<form className='form__users' onSubmit={handleSubmit(submit)}>
+				<form className='form__users' onSubmit={handleSubmit(submit)} onKeyDown={handleKeyDown}>
 					<div className='close__form'><button onClick={handleClose}>✖</button></div>
 					<h2 className='form__tittle'>{updateInfo ? 'Edit User' : 'New User'}</h2>
 
