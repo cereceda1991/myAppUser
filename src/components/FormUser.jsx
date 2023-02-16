@@ -40,9 +40,8 @@ const FormUser = ({ createNewUser, updateInfo, setUpdateInfo, updateUserById, se
 
 	const handleKeyDown = (event) => {
 		if (event.key === 'Enter') {
-			// event.preventDefault();
-			setShowEmptyInfo(true);
-			setShowForm(false);
+			event.preventDefault();
+
 		}
 	};
 
